@@ -1,3 +1,5 @@
+// Model files are imported here, and exported out for routes to use.
 module.exports = {
-  Post: require("./post")
+  Events: require("./event"),
+  Users: require("./user")
 };
