@@ -7,7 +7,7 @@ function OurModal(props) {
             <div style={{ textAlign: "center" }}>
                 <h2 style={{ color: props.color }}>{props.messageheader}</h2>
                 <p>{props.message}</p>
-                <a href="javascript:void(0);" onClick={() => props.close()}>Close</a>
+                <a href="#" onClick={() => props.close()}>Close</a>
             </div>
         </Modal>
     );
