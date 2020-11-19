@@ -1,5 +1,4 @@
 import React from "react";
-import "./viewMyEventsHeader.css";
 
 function EventsHeader(props) {
     return (
