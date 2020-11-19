@@ -9,7 +9,7 @@ function Nav(props) {
         <div class="navbar-fixed">
         <nav>
             <div className="nav-wrapper">
-                <a href="/" className="brand-logo left">Navbar</a>
+                <a href="/" className="brand-logo left">Let's Volunteer</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     {/* Logging out sets state to Logged Out, and also directs you to home page */}
                     <li className={(props.loggedIn === "true") ? "" : "hiddenForNav"}><Link to="#">{`Welcome, ${localStorage.getItem('username')}!`}</Link></li>
