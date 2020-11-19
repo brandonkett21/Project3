@@ -11,6 +11,7 @@ function CreateCard(props) {
             style={{height: "200px"}}
             className="activator"
             src="https://media.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif"
+            alt=""
           ></img>
         </div>
         <div className="card-content">
