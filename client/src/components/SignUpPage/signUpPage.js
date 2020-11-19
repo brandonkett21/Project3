@@ -1,5 +1,4 @@
 import React from "react";
-import "./signUpPage.css";
 
 function SignUpPage(props) {
     return (
