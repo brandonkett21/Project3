@@ -18,28 +18,18 @@ function LogInPageComponent(props) {
                                         <div className="card-content">
                                             <div className="row">
                                                 <div className="input-field col s12">
-                                                    <input id="username" type="text" className="validate" name="username"
-
-                                                    onChange={props.handleInputChange}
-                                                    
-
-                                                    ></input>
+                                                    <input id="username" type="text" className="validate" name="username" onChange={props.handleInputChange}></input>
                                                     <label htmlFor="username">Username</label>
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="input-field col s12">
-                                                    <input id="password" type="password" className="validate" name="password"
-                                                    
-                                                    onChange={props.handleInputChange}
-                                                    
-
-                                                    ></input>
+                                                    <input id="password" type="password" className="validate" name="password" onChange={props.handleInputChange}></input>
                                                     <label htmlFor="password">Password</label>
                                                 </div>
                                             </div>
                                             <a className="waves-effect waves-light btn green pulse" id="login" onClick={props.handleFormSubmit}>Log In</a>
-    <br></br><br></br>
+                                            <br></br><br></br>
                                         </div>
                                     </div>
                                 </div>
@@ -48,8 +38,6 @@ function LogInPageComponent(props) {
                     </div>
                 </div>
             </div>
-
-
         </div >
     )
 }

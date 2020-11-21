@@ -8,6 +8,14 @@ const passport = require("./passport");
 const morgan = require("morgan");
 const MongoStore = require("connect-mongo")(session);
 
+// Connect to the Mongo DB
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+mongoose.connect(
+  MONGODB_URI,
+  { useNewUrlParser: true },
+  console.log("Connected to MongoDB!")
+);
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,20 +26,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes, both API and view
-app.use(routes);
-
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
-
-// Passport
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Session to keep track of login status
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: "hello",
     store: new MongoStore({
       mongooseConnection: mongoose.connection
     }),
@@ -40,7 +38,14 @@ app.use(
   })
 );
 
-// Start the API server
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Add routes, both API and view
+app.use(routes);
+
+// Start the server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
