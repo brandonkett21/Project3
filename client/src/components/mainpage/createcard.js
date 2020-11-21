@@ -16,17 +16,12 @@ function CreateCard(props) {
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">
-            <b>Create Event</b><i className="material-icons right">add_circle_outline
-</i>
+            <b>Create Event</b><i className="material-icons right">add_circle_outline</i>
           </span>
-          <p>
-            <Link to={(props.loggedIn === "true") ? "/createevent" : "/loginpage"}>Click here to create an event!</Link>
-          </p>
+          <p><Link to={(props.loggedIn === "true") ? "/createevent" : "/loginpage"}>Click here to create an event!</Link></p>
         </div>
         <div className="card-reveal">
-          <span className="card-title grey-text text-darken-4">
-            Create Event
-          </span>
+          <span className="card-title grey-text text-darken-4">Create Event</span>
           <p>
             If you have an idea for a volunteer event in your local community,
             click<Link to={(props.loggedIn === "true") ? "/createevent" : "/loginpage"}> here </Link>
