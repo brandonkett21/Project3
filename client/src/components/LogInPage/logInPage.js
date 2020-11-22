@@ -38,8 +38,6 @@ function LogInPageComponent(props) {
                     </div>
                 </div>
             </div>
-
-
         </div >
     )
 }

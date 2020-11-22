@@ -1,6 +1,7 @@
 import React from "react";
 import "./myAccount.css";
 import ProfileSample from "../MyAccount/profileSample.png";
+ main
 
 function MyAccountComponent(props) {
     return (

@@ -7,12 +7,7 @@ function CreateCard(props) {
     <div className="col col s12 m6 l4 xl3">
       <div className="create-card card">
         <div className="card-image waves-effect waves-block waves-light">
-          <img
-            style={{height: "200px"}}
-            className="activator"
-            src="https://media.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif"
-            alt=""
-          ></img>
+          <img style={{height: "200px"}} className="activator" src="https://media.giphy.com/media/xUA7b4arnbo3THfzi0/giphy.gif" alt=""></img>
         </div>
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">
