@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import "./othercards.css"
 
 function OtherCards(props) {
-
     return (
         <div className="col s12 m6 l4 xl3">
             <div className="card display-cards">
@@ -15,7 +13,6 @@ function OtherCards(props) {
                     <span className="card-title activator grey-text text-darken-4"><b>{props.eventName}</b></span>
                     <span>{props.date}</span>
                     <p>See more about <Link to={`view/event/${props.eventID}`}>{props.eventName}!</Link></p>
-
                 </div>
                 <div className="card-reveal">
                     <span className="card-title grey-text text-darken-4">{props.eventName}</span>
@@ -23,7 +20,6 @@ function OtherCards(props) {
                 </div>
             </div>
         </div>
-
     )
 }
 

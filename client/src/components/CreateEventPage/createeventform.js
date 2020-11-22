@@ -17,44 +17,22 @@ function CreateEventForm(props) {
                                         </div>
                                         <div className="card-content">
                                             <div className="input-field col s12">
-                                                <input id="event_name" type="text" className="validate" name="eventName"
-
-                                                    onChange={props.handleInputChange}
-                                                ></input>
-
+                                                <input id="event_name" type="text" className="validate" name="eventName" onChange={props.handleInputChange}></input>
                                                 <label htmlFor="event_name">Event Name</label>
                                             </div>
-
                                             <div className="input-field col s12">
                                                 <Autocomplete/>
                                             </div>
-
                                             <div className="input-field col s12">
-                                                <input id="createdate" type="date" className="validate" name="date"
-
-                                                    onChange={props.handleInputChange}
-
-
-                                                ></input>
+                                                <input id="createdate" type="date" className="validate" name="date" onChange={props.handleInputChange}></input>
                                                 <label htmlFor="date">Date</label>
                                             </div>
-
                                             <div className="input-field col s12">
-                                                <input id="createtime" type="time" className="validate" name="time"
-
-                                                    onChange={props.handleInputChange}
-
-
-                                                ></input>
+                                                <input id="createtime" type="time" className="validate" name="time" onChange={props.handleInputChange}></input>
                                                 <label htmlFor="time">Time</label>
                                             </div>
-
                                             <div className="input-field col s12">
-                                                <input id="createdescription" type="text" className="validate" name="description"
-
-                                                    onChange={props.handleInputChange}
-
-                                                ></input>
+                                                <input id="createdescription" type="text" className="validate" name="description" onChange={props.handleInputChange}></input>
                                                 <label htmlFor="description">Description</label>
                                             </div>
                                             <div className="row fileInput">
