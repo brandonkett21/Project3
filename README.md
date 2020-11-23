@@ -29,7 +29,8 @@ When the user views the home page they can...
 
 
 ## Demo
--screenshots and demo video
+![Demo](\Let's-volunteer.mp4)
+![Demo](\VolunteerOps.gif)
 
 ## Technologies Used
 
