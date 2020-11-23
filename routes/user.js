@@ -37,11 +37,11 @@ router.post("/user", parser.single("image"), (req, res) => {
             console.log('User.js post error: ', err)
         } else if (user) {
             res.json({
-                error: `Sorry, already a user with the username: ${newUser.username}`
+                error: `Sorry, username already exists: ${newUser.username}`
             });
         } else if (user) {
             res.json({
-                error: `Sorry, already a user with the username: ${req.body.username}`
+                error: `Sorry, username already exists: ${req.body.username}`
             });
         }
         else {
@@ -50,7 +50,7 @@ router.post("/user", parser.single("image"), (req, res) => {
                     console.log('User.js post error: ', err)
                 } else if (user) {
                     res.json({
-                        error: `Sorry, already a user with the email: ${newUser.email}`
+                        error: `Sorry, email already exists: ${newUser.email}`
                     })
                 } else {
                     db.Users.create(newUser)
@@ -74,7 +74,6 @@ router.get("/user/:id", (req, res) => {
 router.put("/user/:id", parser.single("image"), (req, res) => {
     db.Users.findById(req.params.id)
         .then(user => {
-            // stores current user image id to use for deletion
             const id = user.image.id;
             let image = {};
 
@@ -83,21 +82,18 @@ router.put("/user/:id", parser.single("image"), (req, res) => {
                 console.log(req.file);
                 image.url = req.file.url;
                 image.id = req.file.public_id;
-                // takes the old stored image id and deletes it from cloudinary storage
                 if (id) {
                     cloudinary.v2.uploader.destroy(id, (err, res) => {
                         if(err) console.log(err);
                         console.log("This is the response:" + res)
                     });
                 }
-                // if user is not uploading a new image then set new image object to the current image object
             } else {
                 image = user.image;
                 console.log(image);
             }
             db.Users.findByIdAndUpdate(user._id, {
-                // users not allowed to change their username
-                // so update all fields except username
+                // update all fields except username
                 $set: {
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
