@@ -20,7 +20,6 @@ class ViewEventAsIs extends React.Component {
     getEventData = (eventID) => {
         axios.get(`/event/${eventID}`)
             .then((response) => {
-                // BLOCK #1 FOR DEFAULT VALUE INPUT
                 localStorage.setItem("eventName", response.data.fromDB.name);
                 localStorage.setItem("eventAddress", response.data.fromDB.address);
                 localStorage.setItem("eventDate", response.data.fromDB.date);
@@ -28,7 +27,6 @@ class ViewEventAsIs extends React.Component {
                 localStorage.setItem("eventDescription", response.data.fromDB.description);
 
                 let attendeesArray = [];
-
                 for (let i = 0; i < response.data.fromDB.attendees.length; i++) {
                     let userInfoPacket = {};
                     userInfoPacket.username = response.data.fromDB.attendees[i].username;

@@ -3,7 +3,6 @@ import Nav from "../components/mainpage/nav"
 import LogInPageComponent from "../components/LogInPage/logInPage";
 import OurModal from "../components/SignUpPage/modal";
 import axios from "axios"
-import { Link, withRouter } from "react-router-dom";
 
 class Login extends React.Component {
     state = {
@@ -83,19 +82,21 @@ class Login extends React.Component {
                     manageLogin={this.manageLogin}
                     href={this.state.href}>
                 </Nav>
+
                 <LogInPageComponent
-                handleInputChange={this.handleInputChange}
-                login={this.login}
-                bypassLogin={this.bypassLogin}
-                handleFormSubmit={this.handleFormSubmit}>
+                    handleInputChange={this.handleInputChange}
+                    login={this.login}
+                    bypassLogin={this.bypassLogin}
+                    handleFormSubmit={this.handleFormSubmit}>
                 </LogInPageComponent>
+
                 <OurModal
-                visible={this.state.visible}
-                open={this.openModal}
-                close={this.closeModal}
-                messageheader="Incorrect Login Info"
-                message="Either your username or password is incorrect.  Please try again."
-                color="orangered">
+                    visible={this.state.visible}
+                    open={this.openModal}
+                    close={this.closeModal}
+                    messageheader="Incorrect login info!"
+                    message="Either your username or password is incorrect. Please try again."
+                    color="orangered">
                 </OurModal>
             </div>
         )

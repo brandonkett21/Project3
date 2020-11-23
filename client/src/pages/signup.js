@@ -19,7 +19,6 @@ class SignUp extends React.Component {
     }
 
     signUp = () => {
-        // image uploads to multer need FormData - can"t just send an object with items from state
         let formData = new FormData();
         formData.append("username", this.state.username);
         formData.append("firstname", this.state.firstname);
@@ -90,18 +89,20 @@ class SignUp extends React.Component {
                     manageLogin={this.manageLogin}
                     href={this.state.href}>
                 </Nav>
+
                 <SignUpPage
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     setImage={this.setImage}>
                 </SignUpPage>
+
                 <OurModal
-                visible={this.state.visible}
-                open={this.openModal}
-                close={this.closeModal}
-                messageheader={(this.state.success === true) ? "Success!" : "Account Creation Failure"}
-                message={(this.state.success === true) ? `Please login at the top of the page.` : this.state.failureMessage}
-                color={(this.state.success === true) ? "limegreen" : "orangered"}>
+                    visible={this.state.visible}
+                    open={this.openModal}
+                    close={this.closeModal}
+                    messageheader={(this.state.success === true) ? "Success!" : "Account Creation Failure"}
+                    message={(this.state.success === true) ? `Please login at the top of the page.` : this.state.failureMessage}
+                    color={(this.state.success === true) ? "limegreen" : "orangered"}>
                 </OurModal>
             </div>
         )
