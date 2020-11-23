@@ -8,29 +8,25 @@ class MyAccount extends React.Component {
     state = {
         loggedIn: localStorage.getItem("loggedIn"),
         userID: "",
-
         username: "",
         firstname: "",
         lastname: "",
         password: "",
         email: "",
         image: "",
-
         newfirstname: "",
         newlastname: "",
         newpassword: "",
         newemail: "",
         newimage: "",
-
         visible: false,
 
     }
 
-    // this will GET details that are already saved in DB
+    // get details from DB
     getUserDetails = (userIDFromState) => {
         axios.get(`/user/${userIDFromState}`)
-            .then((response) => {
-                // data was returned as response.data, which is an array.  
+            .then((response) => {  
                 this.setState({
                     username: response.data[0].username,
                     firstname: response.data[0].firstname,
@@ -66,7 +62,6 @@ class MyAccount extends React.Component {
     }
 
     componentDidMount() {
-        // found that callback was needed after setting State in order to use function to lookup user using state (async issue solved)
         this.setState({ userID: localStorage.getItem("userID") }, () => {
             this.getUserDetails(this.state.userID)});
     }
@@ -130,7 +125,6 @@ class MyAccount extends React.Component {
             formData.append("password", this.state.newpassword);
             formData.append("email", this.state.newemail);
             formData.append("image", this.state.newimage);
-
             this.changeUserDetails(this.state.userID, formData);
         }
     };
@@ -159,11 +153,8 @@ class MyAccount extends React.Component {
                     username={this.state.username}
                     email={this.state.email}
                     image={this.state.image}
-
                     handleInputChange={this.handleInputChange}
-
                     handleFormSubmit={this.handleFormSubmit}
-
                     setImage={this.setImage}
                 />
                 <OurModal

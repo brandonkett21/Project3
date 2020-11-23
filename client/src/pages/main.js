@@ -1,13 +1,11 @@
 import React from "react";
-import Nav from "../components/mainpage/nav"
-import Statement from "../components/mainpage/statement"
+import OtherCards from "../components/mainpage/othercards"
 import SearchBar from "../components/mainpage/searchbar"
 import CreateCard from "../components/mainpage/createcard"
-import OtherCards from "../components/mainpage/othercards"
-import Carousel from "../components/mainpage/carousel"
+import Nav from "../components/mainpage/nav"
 import axios from "axios"
 import OurModal from "../components/SignUpPage/modal"
-import { Link, withRouter } from "react-router-dom";
+
 
 class Main extends React.Component {
 
@@ -103,33 +101,30 @@ class Main extends React.Component {
                 <div className="container-main">
                     <SearchBar
                         handleInputChange={this.handleInputChange}
-                        
                         handleFormSubmit={this.handleFormSubmit}>
                     </SearchBar>
                     <div className="row">
-                    <CreateCard
-                    loggedIn={this.state.loggedIn}></CreateCard>
-                    {this.state.eventResults.map( (each) => (
-                        
-                        <OtherCards
-                        image={each.image.url}
-                        eventName={each.name}
-                        eventID={each._id}
-                        date={each.date}
-                        description={each.description}>
-                            
-                        </OtherCards>
-                    ))}
+                        <CreateCard
+                            loggedIn={this.state.loggedIn}>
+                        </CreateCard>
+                        {this.state.eventResults.map( (each) => (
+                            <OtherCards
+                                image={each.image.url}
+                                eventName={each.name}
+                                eventID={each._id}
+                                date={each.date}
+                                description={each.description}>
+                            </OtherCards>
+                        ))}
                     </div>
                 </div>
                 <OurModal
-                visible={this.state.visible}
-                open={this.openModal}
-                close={this.closeModal}
-                messageheader={"No Results..."}
-                message={"Please try searching for other events."}
-                color={"orangered"}>
-
+                    visible={this.state.visible}
+                    open={this.openModal}
+                    close={this.closeModal}
+                    messageheader={"No Results..."}
+                    message={"Please try searching for other events."}
+                    color={"orangered"}>
                 </OurModal>
             </div>
         )

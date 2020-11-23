@@ -28,10 +28,8 @@ function Autocomplete(props) {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
-
                         <input name="address" style={{backgroundColor: props.color}} {...getInputProps({ placeholder: "Type address" })} />
-
-                        <div >
+                    <div >
                             {loading ? <div>...loading</div> : null}
 
                             {suggestions.map(suggestion => {

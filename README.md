@@ -1,4 +1,5 @@
-# Volunteer Ops App
+*AS a member of my community 
+*I want to be a# Volunteer Ops App
 
 ## Description 
 
@@ -6,12 +7,11 @@ The app "Volunteer ops" is designed to allow users to sign up and create volunte
 
 ## User Story
 
-AS a member of my community 
-I want to be able to organize and create volunteer events within my community
-SO THAt others in the community can search and find my event to volunteer at
-I also want to view and keep track of the events I created
-AND update and edit my profile/login credentials
-AND search and view other events people created
+ble to organize and create volunteer events within my community
+*SO THAT others in the community can search and find my event to volunteer at
+*I also want to view and keep track of the events I created
+*AND update and edit my profile/login credentials
+*AND search and view other events people created
 
 ## Business Context
 
