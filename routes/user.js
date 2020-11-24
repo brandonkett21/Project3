@@ -10,6 +10,32 @@ router.get("/user", function (req, res) {
         .then((response) => res.json(response))
 });
 
+// post route to log out
+router.post('/logout', (req, res) => {
+    if (req.user) {
+        req.logout()
+        res.send({ msg: 'logging out' })
+    } else {
+        res.send({ msg: 'no user to log out' })
+    }
+})
+
+// get route for a specific user by id
+router.get("/user/:id", (req, res) => {
+    console.log(`this is req.params.id ${req.params.id}`)
+    db.Users.find({ _id: req.params.id })
+        .then(user => res.json(user))
+        .catch(err => res.json(err))
+});
+
+// get route to get all events a user is attending or organizing
+router.get("/user/:id/myevents", (req, res) => {
+    db.Users.find({ _id: req.params.id })
+        .populate("events")
+        .then(user => res.json(user))
+        .catch(err => res.json(err))
+});
+
 // post route to create a new user
 router.post("/user", parser.single("image"), (req, res) => {
     console.log("api POST request received");
@@ -62,13 +88,6 @@ router.post("/user", parser.single("image"), (req, res) => {
     });
 });
 
-// get route for a specific user by id
-router.get("/user/:id", (req, res) => {
-    console.log(`this is req.params.id ${req.params.id}`)
-    db.Users.find({ _id: req.params.id })
-        .then(user => res.json(user))
-        .catch(err => res.json(err))
-});
 
 // put route to update user information
 router.put("/user/:id", parser.single("image"), (req, res) => {
@@ -107,13 +126,6 @@ router.put("/user/:id", parser.single("image"), (req, res) => {
         .catch(err => res.json(err));
 });
 
-// get route to get all events a user is attending or organizing
-router.get("/user/:id/myevents", (req, res) => {
-    db.Users.find({ _id: req.params.id })
-        .populate("events")
-        .then(user => res.json(user))
-        .catch(err => res.json(err))
-});
 
 // post route to create a new login session
 router.post('/login', (req, res, next) => {
@@ -132,16 +144,6 @@ router.post('/login', (req, res, next) => {
         res.send(userInfo);
     }
 );
-
-// post route to log out
-router.post('/logout', (req, res) => {
-    if (req.user) {
-        req.logout()
-        res.send({ msg: 'logging out' })
-    } else {
-        res.send({ msg: 'no user to log out' })
-    }
-})
 
 
 module.exports = router

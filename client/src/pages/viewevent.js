@@ -137,7 +137,6 @@ class ViewEventAsIs extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         let formData = new FormData();
-        // BLOCK #3 FOR DEFAULT VALUE INPUT
         formData.append("name", (this.state.newname === undefined) ? localStorage.getItem("eventName") : this.state.newname);
         formData.append("address", (this.state.newaddress === undefined) ? localStorage.getItem("eventAddress") : this.state.newaddress);
         formData.append("date", (this.state.newdate === undefined) ? localStorage.getItem("eventDate") : this.state.newdate);
@@ -175,12 +174,11 @@ class ViewEventAsIs extends React.Component {
                     description={this.state.description}
                     organizer={this.state.organizer}
                     organizername={this.state.organizername}
-
                     attendees={(this.state.attendees.length === 0) ? "No Attendees Yet!" : this.state.attendees.map(
                         (each) =>
                             <div className="attendeeDiv" style={{ verticalalign: "middle", padding: "5px"}}>
                                 <div style={{paddingBottom: "2px"}}>{each.username + " "}</div>
-                                <img src={each.image} alt="2013 Toyota Tacoma" className="attendeeImg" style={{ height: "50px", width: "50px", objectFit: "cover" }}></img>
+                                <img src={each.image} alt="" className="attendeeImg" style={{ height: "50px", width: "50px", objectFit: "cover" }}></img>
                             </div>
                     )
                     }
@@ -196,7 +194,6 @@ class ViewEventAsIs extends React.Component {
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     setImage={this.setImage}
-
                 />
             </div>
         )

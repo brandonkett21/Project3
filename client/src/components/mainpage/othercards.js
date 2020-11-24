@@ -7,7 +7,7 @@ function OtherCards(props) {
         <div className="col s12 m6 l4 xl3">
             <div className="card display-cards">
                 <div className="card-image waves-effect waves-block waves-light image-container">
-                    <img className="activator" src={props.image}></img>
+                    <img className="activator" src={props.image} alt=""></img>
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4"><b>{props.eventName}</b></span>

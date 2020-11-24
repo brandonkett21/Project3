@@ -5,20 +5,6 @@ var nodemailer = require('nodemailer');
 const parser = require("../cloudinary/cloudinary");
 const cloudinary = require("cloudinary");
 
-router.get("/event", function (req, res) {
-    db.Events.find({}).then((response) => {
-        console.log(response);
-        console.log("showing events");
-        if (response.length > 5) {
-            let lastFive = response.slice(Math.max(response.length - 7, 1));
-            res.json(lastFive);
-        }
-        else {
-            res.json(response);
-        }
-    });
-});
-
 router.get("/event/:id", function (req, res) {
     let id = req.params.id
     db.Events.findById(id)
@@ -27,46 +13,6 @@ router.get("/event/:id", function (req, res) {
             let timeToEvent = Moment(`${response.date} ${response.time}`).fromNow();
             res.json({ fromDB: response, time: timeToEvent });
         });
-});
-
-
-// create new event
-router.post("/event", parser.single("image"), function (req, res) {
-    console.log("event POST request received");
-    let newEvent = {};
-    let image = {};
-
-    if (req.file) {
-        image.url = req.file.url;
-        image.id = req.file.public_id;
-    } else {
-        image = req.body.image;
-    }
-
-    newEvent.name = req.body.name;
-    newEvent.address = req.body.address;
-    newEvent.date = req.body.date;
-    newEvent.time = req.body.time;
-    newEvent.description = req.body.description
-    newEvent.organizer = req.body.organizer;
-    newEvent.image = image;
-
-    db.Users.findOne({ username: newEvent.organizer })
-        .then(response => newEvent.organizerId = response._id)
-        .then(response => {
-            db.Events.create(newEvent)
-                .then((dbEvent) => {
-                    res.json(dbEvent);
-                    return db.Users.findByIdAndUpdate(
-                        newEvent.organizerId,
-                        { $push: { events: dbEvent._id } },
-                        { new: true }
-                    )
-                })
-                .catch(err => res.status(422).json(err))
-        })
-        .catch(err => console.log(err))
-
 });
 
 // update an existing event
@@ -107,6 +53,60 @@ router.put("/event/:id", parser.single("image"), function (req, res) {
         })
         .catch(err => res.json(err));
 });
+
+router.get("/event", function (req, res) {
+    db.Events.find({}).then((response) => {
+        console.log(response);
+        console.log("showing events");
+        if (response.length > 5) {
+            let lastFive = response.slice(Math.max(response.length - 7, 1));
+            res.json(lastFive);
+        }
+        else {
+            res.json(response);
+        }
+    });
+});
+
+// create new event
+router.post("/event", parser.single("image"), function (req, res) {
+    console.log("event POST request received");
+    let newEvent = {};
+    let image = {};
+
+    if (req.file) {
+        image.url = req.file.url;
+        image.id = req.file.public_id;
+    } else {
+        image = req.body.image;
+    }
+
+    newEvent.name = req.body.name;
+    newEvent.address = req.body.address;
+    newEvent.date = req.body.date;
+    newEvent.time = req.body.time;
+    newEvent.description = req.body.description
+    newEvent.organizer = req.body.organizer;
+    newEvent.image = image;
+
+    db.Users.findOne({ username: newEvent.organizer })
+        .then(response => newEvent.organizerId = response._id)
+        .then(response => {
+            db.Events.create(newEvent)
+                .then((dbEvent) => {
+                    res.json(dbEvent);
+                    return db.Users.findByIdAndUpdate(
+                        newEvent.organizerId,
+                        { $push: { events: dbEvent._id } },
+                        { new: true }
+                    )
+                })
+                .catch(err => res.status(422).json(err))
+        })
+        .catch(err => console.log(err))
+
+});
+
 
 // delete an existing event
 router.delete("/event/:id", parser.single("image"), function (req, res) {

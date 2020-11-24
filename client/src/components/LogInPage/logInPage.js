@@ -13,7 +13,7 @@ function LogInPageComponent(props) {
                                     <div className="col s12">
                                         <span className="card-title" style={{ fontSize: "3rem" }}>Log In</span>
                                         <div className="card-image">
-                                            <img src={Image} style={{ width: "100%" }} />
+                                            <img src={Image} style={{ width: "100%" }} alt="" />
                                         </div>
                                         <br />
                                         <div className="card-content">
