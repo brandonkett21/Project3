@@ -20,7 +20,7 @@ function ViewEventComponent(props) {
                     </span>
                     <br></br>
                     <div className="card-image">
-                      <img src={(props.image) ? props.image : "https://raw.github.com/ajperkins92/Project-3/master/client/public/images/seattlePark2.jpg"} style={{ maxWidth: "100%" }}/>
+                      <img src={(props.image) ? props.image : "https://raw.github.com/ajperkins92/Project-3/master/client/public/images/seattlePark2.jpg"} style={{ maxWidth: "100%" }} alt=""/>
                     </div>
                     <br/>
                     <div className="card-content">{props.editing === true ? (
@@ -29,9 +29,8 @@ function ViewEventComponent(props) {
                           <input id="eventname" type="text" className="validate" name="newname" onChange={props.handleInputChange}/>
                           <a className="collection-item">Google Map Image
                             <iframe
-                               style={{border:"0", width: "600", height: "450", frameborder: "0", border: "0px",
+                               style={{width: "600", height: "450", frameborder: "0", border: "0px",
                                position: "relative",
-                               width: "100%",
                                minHeight: "30rem", maxHeight: "40rem"}}
                                 src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBaLU-7p4spFKf611ZrMTTZoQUCC2KMgbg&q=${props.address}`} >
                               </iframe>

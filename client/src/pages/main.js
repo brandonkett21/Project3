@@ -35,10 +35,6 @@ class Main extends React.Component {
             });
     }
 
-    componentDidMount() {
-        this.getRandomEvents();
-    }
-
     searchEvents = (query) => {
         axios.get(`/search/?q=${query}`)
             .then((response) => {

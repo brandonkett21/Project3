@@ -13,7 +13,7 @@ function MyAccountComponent(props) {
                                     <div className="col s12">
                                         <span className="card-title" style={{ fontSize: "3rem" }}>My Account</span>
                                         <div className="card-image">
-                                            < img src={props.image} style={{ width: "200px" }} alt={"profile Image"}/> 
+                                            < img src={props.image} style={{ width: "200px" }} alt=""/> 
                                         </div>
                                         <div className="card-content">
                                             {props.username ?

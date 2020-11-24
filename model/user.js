@@ -70,8 +70,6 @@ UsersSchema.methods = {
     }
 }
 
-
-
 var Users = mongoose.model("Users", UsersSchema);
 
 module.exports = Users;

@@ -14,7 +14,7 @@ function SignUpPage(props) {
                                     <div className="col s12">
                                         <span className="card-title" style={{ fontSize: "3rem" }}>Sign Up</span>
                                         <div className="card-image">
-                                            <img src={Image} style={{ width: "100%" }} />
+                                            <img src={Image} style={{ width: "100%" }} alt="helping hands" />
                                         </div>
                                         <div className="card-content">
                                             <div className="row">

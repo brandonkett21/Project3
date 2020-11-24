@@ -13,7 +13,6 @@ class MyAccount extends React.Component {
         lastname: "",
         password: "",
         email: "",
-        image: "",
         newfirstname: "",
         newlastname: "",
         newpassword: "",

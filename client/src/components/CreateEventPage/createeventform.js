@@ -13,7 +13,7 @@ function CreateEventForm(props) {
                                     <div className="col s12">
                                         <span className="card-title" style={{ fontSize: "3rem" }}>Create Event</span>
                                         <div className="card-image">
-                                            <img src="https://raw.github.com/ajperkins92/Project-3/master/client/public/images/seattlePark3.jpg" style={{ width: '90%' }}></img>
+                                            <img src="https://raw.github.com/ajperkins92/Project-3/master/client/public/images/seattlePark3.jpg" style={{ width: '90%' }} alt=""></img>
                                         </div>
                                         <div className="card-content">
                                             <div className="input-field col s12">
