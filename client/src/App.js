@@ -20,12 +20,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <Switch>
+        <div className="">
+          <Switch className="">
             <Route exact path="/" component={Main} />
             <Route exact path="/createevent" component={CreateEvent} />
             <Route exact path="/loginpage" component={Login} />
-            {/* <Route exact path="/logout" component={Logout} /> */}
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/myevents" component={MyEvents} />
             <Route exact path="/myaccount" component={MyAccount} />
