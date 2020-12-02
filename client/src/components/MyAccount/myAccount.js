@@ -21,10 +21,10 @@ function MyAccountComponent(props) {
                                                 <p style={{ fontSize: "1.5rem" }}><i>Welcome, Volunteer!</i></p>
                                             }
                                             <p>Your current Account Details are populated below.  You can input new values to update your account.</p>
-                                            <div class="collection">
-                                                <a className="collection-item"><span class=""></span><b>First Name :</b> {props.firstname}</a>
-                                                <a className="collection-item"><span class=""></span><b>Last Name :</b> {props.lastname}</a>
-                                                <a className="collection-item"><span class=""></span><b>Email :</b> {props.email}</a>
+                                            <div className="collection">
+                                                <a className="collection-item"><span className=""></span><b>First Name :</b> {props.firstname}</a>
+                                                <a className="collection-item"><span className=""></span><b>Last Name :</b> {props.lastname}</a>
+                                                <a className="collection-item"><span className=""></span><b>Email :</b> {props.email}</a>
                                             </div>
                                             <div className="row">
                                                 <div className="input-field col s6">

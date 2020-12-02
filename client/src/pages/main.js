@@ -21,19 +21,19 @@ class Main extends React.Component {
         visible: false,
     }
 
-    componentDidMount() {
-        this.getRandomEvents();
-    }
+    // componentDidMount() {
+    //     this.getRandomEvents();
+    // }
 
-    getRandomEvents = () => {
-        axios.get("/event")
-            .then((response) => {
-                this.setState({ eventResults: response.data });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    // getRandomEvents = () => {
+    //     axios.get("/event")
+    //         .then((response) => {
+    //             this.setState({ eventResults: response.data });
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
 
     searchEvents = (query) => {
         axios.get(`/search/?q=${query}`)
@@ -88,7 +88,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="">
                 <Nav
                     loggedIn={this.state.loggedIn}
                     manageLogin={this.manageLogin}

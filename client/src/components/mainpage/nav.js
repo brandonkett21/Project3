@@ -4,7 +4,7 @@ import "./nav.css";
 
 function Nav(props) {
     return (
-        <div class="navbar-fixed">
+        <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper">
                     <a href="/" className="brand-logo left">Volunteer Ops</a>
